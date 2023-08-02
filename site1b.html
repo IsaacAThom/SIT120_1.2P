@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SIT120 1.2P 1b - Isaac McKissack</title>
+        <!-- Sets the viewport to a zoom of 1 based on the device size, will scale based on device -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            /* Ensures the width % takes padding into account */
+            * {
+                box-sizing: border-box;
+            }
+
+            .left {
+                background-color: red;
+                padding: 20px;
+                float: left;
+                width: 20%;
+                text-align: center;
+            }
+
+            .main {
+                background-color: black;
+                padding: 20px;
+                float: left;
+                width: 60%;
+                text-align: center;
+            }
+
+            .right {
+                background-color: teal;
+                padding: 20px;
+                float: left;
+                width: 20%;
+                text-align: center;
+            }
+            /* By default image will not be visible */
+            .right img {
+                display: none;
+            }
+
+            /* On screens smaller than 800px, the three divs will be shown at full screen width */
+            @media screen and (max-width: 800px) {
+                .left, .main, .right {
+                    width: 100%;
+                }
+                /* Reveal image in right div */
+                .right img {
+                    display: block;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Header and first paragraph scale with the viewport width -->
+        <h1 style="font-size: 5vw">SIT120 1.2P 1b - Isaac McKissack</h1>
+        <p style="font-size: 2vw">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ullamcorper felis cursus leo sollicitudin, sed semper ligula feugiat. Sed feugiat ligula tellus, sit amet semper tortor viverra ac. Sed ac facilisis dui. Sed sit amet sagittis odio. Vestibulum pellentesque et est iaculis semper. Phasellus ornare tristique suscipit. Aenean placerat eros mi, quis eleifend leo facilisis at. Aliquam et sapien consequat, porta nunc sed, varius massa. Aliquam tincidunt commodo urna, sit amet tempor quam commodo vel. Fusce sed efficitur urna, eu egestas justo.</p>
+        
+        <div class="left">
+            <p>Duis a nisi enim. Praesent nec ipsum sed velit dictum aliquet efficitur vitae tellus. Ut id tellus mi. Donec suscipit sem convallis dui tempus porta. Praesent egestas nec dui sed accumsan. Donec mattis lorem vitae lacinia luctus. Morbi lacinia justo ac ipsum facilisis, at fringilla sapien tincidunt. Quisque orci orci, facilisis in elementum id, ullamcorper id neque.</p>
+        </div>
+        <div class="main">
+            <picture>
+                <!-- Displayed when the device width is 1200+ -->
+                <!-- Image Source - https://unsplash.com/photos/_frvdyMH6S0 -->
+                <source srcset="img_door.jpg" media="(min-width: 1200px)">
+                <!-- Displayed when the device width is 600+ -->
+                <!-- Image Source - https://unsplash.com/photos/CKuOXoZ21a8 -->
+                <source srcset="img_chest.jpg" media="(min-width: 600px)">
+                <!-- Fallback image/Below 600px width-->
+                <!-- Image Source - https://unsplash.com/photos/CKuOXoZ21a8 -->
+                <source srcset="img_explosion.jpg">
+                <img src="img_explosion.jpg" style="max-width: 50%;">
+            </picture>
+        </div>
+        <div class="right">
+            <p>Hi!</p>
+            <!-- Image Source - https://unsplash.com/photos/YdAqiUkUoWA -->
+            <img src="img_flower.jpg" style="max-width: 50%;">
+        </div>
+    </body>
+</html>
