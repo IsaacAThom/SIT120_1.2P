@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SIT120 1.2P 2 - Isaac McKissack</title>
+        <style>
+            .box {
+                padding: 20px;
+                border: 2px solid rgb(20, 9, 115);
+                margin: 20px;
+                background-color: rgb(237, 239, 253);
+            }
+            .result {
+                width: fit-content;
+                padding: 5px 20px;
+                border: 2px solid black;
+                background-color: white;
+                margin: 5px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>SIT120 1.2P 2 - Isaac McKissack</h1>
+        <div class="box">
+            <h2>String Methods</h2>
+            <b>The original string is "I am very familiar with JavaScript"</b><br>
+            <!-- Each button corresponds to the labelled method -->
+            <button onclick="mySlice()">slice()</button>
+            <button onclick="myReplace()">replace()</button>
+            <button onclick="myUpperCase()">toUpperCase()</button>
+            <button onclick="myPadded()">padStart()</button>
+            <button onclick="myCodeAt()">charCodeAt()</button>
+            <div class="result">
+                <p id="stringmethods">I am very familiar with JavaScript</p>
+            </div>
+            <button onclick="myStrReset()">Reset</button>
+        </div>
+
+        <div class="box">
+            <h2>Number Methods</h2>
+            <b>The original number string is "420.691337"</b><br>
+            <!-- Each button corresponds to the labelled method -->
+            <button onclick="myExpontential()">toExponential()</button>
+            <button onclick="myPrecision()">toPrecision()</button>
+            <button onclick="myParse()">parseInt()</button>
+            <button onclick="myInteger()">isInteger()</button>
+            <button onclick="myFixed()">toFixed()</button>
+            <div class="result">
+                <p id="numbermethods">420.691337</p>
+            </div>
+            <button onclick="myNumReset()">Reset</button>
+        </div>
+
+        <div class="box">
+            <h2>Array Methods</h2>
+            <b>The original arrays are:<br>
+            "Deakin, Swinburne, RMIT, Melbourne" & "400, 20, 17, 37, 67"</b><br>
+            <!-- Each button corresponds to the labelled method -->
+            <button onclick="myArrLength()">length</button>
+            <button onclick="myArrJoin()">join</button>
+            <button onclick="myArrUnshift()">unshift</button>
+            <button onclick="myArrSort()">sort</button>
+            <button onclick="myArrPop()">pop</button>
+            <div class="result">
+                <p id="arraymethods">Deakin,Swinburne,RMIT,Melbourne & 400,20,17,37,67</p>
+                <p id="arraymethods2"></p>
+            </div>
+            <button onclick="myArrReset()">Reset</button>
+        </div>
+
+        <div class="box">
+            <h2>Date Methods</h2>
+            <b>The original date is:</b><br>
+            <!-- Each button corresponds to the labelled method -->
+            <button onclick="myDateISO()">toDateISO()</button>
+            <button onclick="myDateTime()">getTime()</button>
+            <button onclick="myDateOffset()">getTimezoneOffset()</button>
+            <button onclick="myDateNewYear()">setFullYear</button>
+            <button onclick="myDateCompare()">Compare the market</button>
+            <div class="result">
+                <p id="datemethods"></p>
+            </div>
+            <button onclick="myDateReset()">Reset</button>
+        </div>
+
+        <script>
+            // variable and functions for String Methods
+            let text = "I am very familiar with JavaScript";
+            // slices off all of the text except those from specified character in the string
+            function mySlice() {
+                document.getElementById("stringmethods").innerHTML = text.slice(24);
+            }
+            // replaces specified text in the string
+            function myReplace() {
+                document.getElementById("stringmethods").innerHTML = text.replace("very", "not very");
+            }
+            // changes all text in string to uppercase
+            function myUpperCase() {
+                document.getElementById("stringmethods").innerHTML = text.toUpperCase();
+            }
+            // adds blank spaces to the start of the string until the total length is 40
+            function myPadded() {
+                document.getElementById("stringmethods").innerHTML = text.padStart(40,"\u00A0");
+            }
+            // returns unicode of specified character in string
+            function myCodeAt() {
+                document.getElementById("stringmethods").innerHTML = text.charCodeAt(24);
+            }
+
+            // variable and functions for Number Methods
+            let x = 420.691337;
+            // returns number in scientific notation to specified number of decimal points
+            function myExpontential() {
+                document.getElementById("numbermethods").innerHTML = x.toExponential(3);
+            }
+            // returns number as string to specified character length
+            function myPrecision() {
+                document.getElementById("numbermethods").innerHTML = x.toPrecision(5);
+            }
+            // converts a string to a whole number
+            function myParse() {
+                document.getElementById("numbermethods").innerHTML = parseInt(x);
+            }
+            // checks if the provided number is an integer
+            function myInteger() {
+                document.getElementById("numbermethods").innerHTML = Number.isInteger(x);
+            }
+            // returns number with specified number of decimals
+            function myFixed() {
+                document.getElementById("numbermethods").innerHTML = x.toFixed(4);
+            }
+
+            // variables and functions for Array Methods
+            let myArr1 = ["Deakin", "Swinburne", "RMIT", "Melbourne"];
+            let myArr2 = [400, 20, 17, 37, 67];
+            // returns length of the array
+            function myArrLength() {
+                document.getElementById("arraymethods").innerHTML = myArr1.length + " & " + myArr2.length;
+                document.getElementById("arraymethods2").innerHTML = "";
+            }
+            // prints the array to a string, separated by the specified characters
+            function myArrJoin() {
+                document.getElementById("arraymethods").innerHTML = myArr1.join(" x ") + " & " + myArr2.join(" v ");
+                document.getElementById("arraymethods2").innerHTML = "";
+            }
+            // adds an element to the start of the array - this displays the arrays new length, and the arrays new state
+            function myArrUnshift() {
+                let myArr1 = ["Deakin", "Swinburne", "RMIT", "Melbourne"];
+                let myArr2 = [400, 20, 17, 37, 67];
+                document.getElementById("arraymethods").innerHTML = myArr1.unshift("ACU") + " & " + myArr2.unshift("8");
+                document.getElementById("arraymethods2").innerHTML = myArr1 + " & " + myArr2;
+            }
+            // sorts arrays alphabetically and by comparing numbers
+            function myArrSort() {
+                let myArr1 = ["Deakin", "Swinburne", "RMIT", "Melbourne"];
+                let myArr2 = [400, 20, 17, 37, 67];
+                document.getElementById("arraymethods").innerHTML = myArr1.sort() + " & " + myArr2.sort(function(a,b){return a - b});
+                document.getElementById("arraymethods2").innerHTML = "";
+            }
+            // removes last element of the array - this display that element
+            function myArrPop() {
+                let myArr1 = ["Deakin", "Swinburne", "RMIT", "Melbourne"];
+                let myArr2 = [400, 20, 17, 37, 67];
+                document.getElementById("arraymethods").innerHTML = myArr1.pop() + " & " + myArr2.pop();
+                document.getElementById("arraymethods2").innerHTML = myArr1 + " & " + myArr2;
+            }
+            
+            // variable and functions for Date Methods
+            const d = new Date();
+            document.getElementById("datemethods").innerHTML = d;
+            // displays date in the ISO standard
+            function myDateISO() {
+                document.getElementById("datemethods").innerHTML = d.toISOString();
+            }
+            // displays milliseconds since Jan 1 1970
+            function myDateTime() {
+                document.getElementById("datemethods").innerHTML = d.getTime();
+            }
+            // displays offset between local and UTC in minutes
+            function myDateOffset() {
+                document.getElementById("datemethods").innerHTML = d.getTimezoneOffset();
+            }
+            // Sets the year of a newly-derived date to 1999
+            function myDateNewYear() {
+                const f = new Date();
+                f.setFullYear(1999);
+                document.getElementById("datemethods").innerHTML = f;
+            }
+            // Compares originally set date to August 5th 2023, changing display text based on whether it comes before or not
+            function myDateCompare() {
+                let text;
+                const someday = new Date();
+                someday.setFullYear(2023,7,5);
+                if (someday > d) {
+                    text = "Today is before August 5th 2023"
+                } else {
+                    text = "Today is after August 5th 2023"
+                }
+                document.getElementById("datemethods").innerHTML = text;
+            }
+
+            // Reset buttons for each section
+            function myStrReset() {
+                document.getElementById("stringmethods").innerHTML = text;
+            }
+
+            function myNumReset() {
+                document.getElementById("numbermethods").innerHTML = x;
+            }
+
+            function myArrReset() {
+                document.getElementById("arraymethods").innerHTML = myArr1 + " & " + myArr2;
+                document.getElementById("arraymethods2").innerHTML = "";
+            }
+
+            function myDateReset() {
+                document.getElementById("datemethods").innerHTML = d;
+            }
+        </script>
+    </body>
+</html>
